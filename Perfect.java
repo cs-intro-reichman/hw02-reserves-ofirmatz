@@ -18,7 +18,7 @@ public class Perfect {
 				if(n==x){	
 				System.out.print(n + " is a perfect number since " + n + " = " + y);
 				}else{
-					System.out.print(n + " is not a perfect number.");
+					System.out.print(n + " is not a perfect number");
 				}
 	}
 }
