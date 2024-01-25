@@ -9,12 +9,60 @@ import java.util.Random;
  */
 public class OneOfEachStats {
 	public static void main (String[] args) {
+		int t = Integer.parseInt(args[0]);
+		int seed = Integer.parseInt(args[1]);	
+		Random generator = new Random(seed); 
+		int numkids = 0;
+		int twochildren = 0;
+		int threechildren = 0;
+		int fourOrMore = 0;
+		double totaChildren = 0;
+		double averege = 0;
+		 	for(int i = 0; i < t; i++){
+		 		boolean boyBorn = false;
+		 		boolean girlborn = false;
+		 		numkids = 0;
+			while(!( boyBorn && girlborn )){
+				double rnd = generator.nextDouble();
+				if((rnd) < 0.5){
+					boyBorn = true;
+					numkids++;
+				}else{
+					girlborn = true;
+					numkids++;
+				}				
+			}
+				totaChildren = numkids + totaChildren;
+			if(numkids == 2){
+				twochildren++;
+			}else if(numkids == 3){
+				threechildren++;
+			}else{
+				fourOrMore++;
+			}
+			}
+					averege = (double)(totaChildren/t);
+					System.out.println("Average: " + averege + " children to get at least one of each gender.");		
+					System.out.println("Number of families with 2 children: " + twochildren );
+					System.out.println("Number of families with 3 children: " + threechildren );
+					System.out.println("Number of families with 4 or more children: " + fourOrMore );
+
+									if(( twochildren >= threechildren ) && ( twochildren >= fourOrMore )){
+											System.out.print("The most common number of children is 2." );
+									}else if(( threechildren >= twochildren)&&( threechildren >= fourOrMore )){
+											System.out.print("The most common number of children is 3." );
+									}else{
+											System.out.print("The most common number of children is 4 or more." );
+									}
+	}
+}
 		// Gets the two command-line arguments
-		int T = Integer.parseInt(args[0]);
-		int seed = Integer.parseInt(args[1]);
+                //int T = Integer.parseInt(args[0]);
+
 		// Initailizes a random numbers generator with the given seed value
-        Random generator = new Random(seed);  
-		
+     //.          Random generator = new Random(seed);  
+	 //	int seed = Integer.parseInt(args[1]);	
+	//	Random generator = new Random(seed); 
 		//// In the previous version of this program, you used a statement like:
 		//// double rnd = Math.random();
 		//// Where "rnd" is the variable that stores the generated random value.
@@ -24,6 +72,3 @@ public class OneOfEachStats {
 		//// just like you had in the previous version, except that the 
 		//// randomization will be based on the given seed.
 		//// This is the only change that you have to do in the program.
-		    
-	}
-}
